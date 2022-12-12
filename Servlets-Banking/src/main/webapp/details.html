@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<style type="text/css">
+
+/* Full-width input fields */
+
+body{
+width:default;
+height:default;
+background-image: url("https://iso.500px.com/wp-content/uploads/2016/03/stock-photo-142984111.jpg");
+}
+input[type=text], input[type=password], input[type=email], input[type=number]
+	{
+	width: 100%;
+	padding: 15px;
+	margin: 5px 0 15px 0;
+	display: inline-block;
+	border: none;
+	background: #f1f1f1;
+}
+
+.input[type=email]:focus, input[type=password]:focus {
+	background-color: #ddd;
+	outline: black;
+}
+
+.registerbtn {
+	background-color: #04AA6D;
+	color: white;
+	padding: 16px 20px;
+	margin: 8px 0 ;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+	opacity: 0.5;
+}
+
+
+.registerbtn {
+	opacity: 1;
+}
+
+h1.hospname {
+	color: blue;
+	text-align: center;
+	border: 2px;
+	
+	border-radius: 5px;
+	padding: 50px 0 50px 0;
+	background-color:red;
+	opacity: 70%;
+}
+</style>
+</head>
+<body>
+	<header>
+		<h1 class="hospname">Aaradhya Hospital</h1>
+	</header>
+
+
+	
+	<form action="" method="get">
+	<div>   <label style="font-size:1.5vw" class="lable" for="name"><b>Name</b></label> <input id="name" type="text"  placeholder="Enter name" name="name" required><br><br> 
+			<label style="font-size:1.5vw" class="lable" class="registerbtn" for="age"><b>Age</b></label> <input id="age" type="number" placeholder="Enter age" name="age" required><br> <br>
+			<label style="font-size:1.5vw" class="lable" for="disease"><b>Disease Category</b></label><br>
+			<p>Select Disease Department</p>
+	<form >
+			<input type="radio" id="ds1" name="ds" value="Neuro"> 
+			<label for="Neuro"> Neurology</label><br>
+			<input type="radio" id="ds2" name="ds" value="ENT">
+			<label for="ENT"> ENT</label><br>
+			
+			<input type="radio" id="ds3" name="ds" value="Psychiatry">
+			<label for="Psychiatry"> Psychiatry</label><br>
+			
+			<input type="radio" id="ds4" name="ds" value="Orthopaedic">
+			<label for="Orthopaedic"> Orthopaedic</label><br>
+			
+			<input type="radio" id="ds5" name="ds" value="General"> 
+			<label for="General surgery"> General surgery</label><br> 
+			
+			<input type="radio" id="ds6" name="ds" value="ICU"> 
+			<label for="icu"> ICU</label> <br>
+			<input type="radio" id="ds7" name="ds" value="other"> 
+			<label for="icu"> Other</label>
+		
+			<input id="disease" type="text" placeholder="Enter Other Disease"	name="ds" required><br>
+			</form>
+			<label style="font-size:1.5vw" class="lable"  for="psw"><b>Address</b></label>
+			<input  type="text" placeholder="Enter   Address" name="address"	required><br>
+
+			<button type="submit" class="registerbtn">Submit</button>
+			<input type="reset" class="registerbtn">
+	
+	</div>
+		
+	</form>
+		
+</body>
+</html>
