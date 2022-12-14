@@ -7,16 +7,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class signup  extends HttpServlet{
+public class signupServlet  extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	
-		String name = req.getParameter("name");
-		String email =  req.getParameter("name");
+		String fname = req.getParameter("fname");
+		String lname = req.getParameter("lname");
+		String email =  req.getParameter("email");
 		long mobile =  Long.parseLong(req.getParameter("mobile"));
 		long adhar = Long.parseLong(req.getParameter("adhar")); 
-		String pan = req.getParameter("pan"); 
+		String dob = req.getParameter("dob"); 
+		String pan = req.getParameter("pan");
+		String country = req.getParameter("country");
+		String state = req.getParameter("state");
+		String city = req.getParameter("city");
+		int zip =Integer.parseInt("zip");
 	}
 
 }
