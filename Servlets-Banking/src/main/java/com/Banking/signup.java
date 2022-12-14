@@ -16,7 +16,7 @@ public class signup  extends HttpServlet{
 		String email =  req.getParameter("name");
 		long mobile =  Long.parseLong(req.getParameter("mobile"));
 		long adhar = Long.parseLong(req.getParameter("adhar")); 
-		String pan = req.getParameter("adhar"); 
+		String pan = req.getParameter("pan"); 
 	}
 
 }
