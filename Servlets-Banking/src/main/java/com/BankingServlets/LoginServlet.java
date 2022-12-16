@@ -1,4 +1,4 @@
-package com.Banking;
+package com.BankingServlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
