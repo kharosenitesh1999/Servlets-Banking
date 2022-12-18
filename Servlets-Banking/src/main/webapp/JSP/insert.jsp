@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    <%@ page import ="com.JSPStudent.Student"  %>
+    <%@ page import= "com.JSPStudent.JSPStudentDao" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -81,54 +84,36 @@ color:red;
 <br>
 <br>
 
-<form>
-
- <div class=head>
-
-<button class="head" formaction="insert.jsp">Insert</button>&nbsp&nbsp&nbsp&nbsp
-<button class="head"formaction="update.jsp">Update</button>&nbsp&nbsp&nbsp&nbsp
-<button class="head"formaction="delete.jsp">Delete</button>&nbsp&nbsp&nbsp&nbsp
-<button class="head"formaction="display.jsp">Display</button>&nbsp&nbsp&nbsp&nbsp
-
-</div>
+<form  action="display.jsp" method="post">
+<button class="head" >Display</button>&nbsp&nbsp&nbsp&nbsp
 </form>
+
+
 
 <div align=center>
 
-<form action="" >
+<form action="insert"  method="post">
 <div class='parent' >
 <h1 align="center">Wel-Come</h1>
 
 <input type='text' placeholder="Enter  the Name" name='name' required><br><br>
 <input type='tel' placeholder="Enter the  Mobile" name='tel' required><br><br>
 <input type='email' placeholder="Enter the email" name='email' required><br><br>
-<button class="btn4"  formaction="insert.jsp" type="submit">Submit</button><br><br>
+<button class="btn4"  type="submit">Submit</button><br><br>
 </div>
 </form>
 
-
-
-<%
-	String name = request.getParameter("name");
-	String email = request.getParameter("email");
-	long tel=0 ;
-	String tels=null;
-	try{
-		tels =request.getParameter("tel");
-		
-		
-	}catch( Exception e){
-		if(e!=null){
-			out.println(e);
-			tel = Long.parseLong(tels);
-		}
-	}
-	session.setAttribute("name", name);
-	session.setAttribute("tel", tel);
-	session.setAttribute("email",email);
-	
-%>
-
 </div>
+
 </body>
 </html>
+
+<!-- 
+<form>
+
+ <div class=head>
+
+<button class="head" formaction="insert.jsp">Insert</button>&nbsp&nbsp&nbsp&nbsp
+<button class="head" formaction="update.jsp">Update</button>&nbsp&nbsp&nbsp&nbsp
+<button class="head" formaction="delete.jsp">Delete</button>&nbsp&nbsp&nbsp&nbsp
+</form> -->
