@@ -35,3 +35,10 @@
 </form>
 </body>
 </html>
+
+<!-- 
+use   servlet;
+create table employee(id int not null, name varchar(150) ,sal  double, email varchar(100), primary key(id));
+desc servlet.employee;
+select *from servlet.employee;
+insert into employee( id,name ,sal,email) values(4,'dada' , 1231.0 ,'data@gmail.com'); -->
