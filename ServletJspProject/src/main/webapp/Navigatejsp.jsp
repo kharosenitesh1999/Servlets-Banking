@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+   pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +8,7 @@
 </head>
 <body align='center'>
 
-<form   action='emp' method='post'>
+<form   action='update' method='post'>
 
 <input height=10px type='submit' value='Click Here' >
 </form>

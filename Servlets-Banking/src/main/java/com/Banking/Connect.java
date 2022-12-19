@@ -1,6 +1,4 @@
 package com.Banking;
-
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -10,6 +8,7 @@ public class Connect {
 	static Connection connection ;
 	public static Connection getConnection( String dbName,String username,String password) {
 		
+		
 		try{
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			
@@ -18,7 +17,7 @@ public class Connect {
 			
 		}
 		
-		String url="jdbc:mysql://localhost:3306";
+		String url="jdbc:mysql://localhost:3306/"+dbName;
 		//create Connection
 		try{
 		connection = DriverManager.getConnection(url,username,password);

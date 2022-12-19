@@ -16,8 +16,6 @@ import java.sql.Statement;
 
 @WebServlet("/emp")
 public class EmployeeServlet  extends HttpServlet{
-
-	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
@@ -36,7 +34,7 @@ public class EmployeeServlet  extends HttpServlet{
 			rd.forward(req, resp);
 			
 		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		

@@ -1,7 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
-    <%@ page import= "java.sql.*;" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import= "java.sql.ResultSet" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,8 +12,8 @@
 <form    >
 
 <%  ResultSet rs = (ResultSet)session.getAttribute("rs"); %>
-<table>
-<th>ID></th>
+<table cellpadding=25px border=2 align=center>
+<th>ID</th>
 <th>Name</th>
 <th>Tel</th>
 <th>Email</th>
@@ -24,7 +22,7 @@
 <tr>
 <td><%= rs.getInt("id") %></td>
 <td><%= rs.getString("name")%></td>
-<td><%= rs.getLong("tel")%></td>
+<td><%= rs.getDouble("sal")%></td>
 <td><%= rs.getString("email")%></td>
 </tr>
 <% } %>

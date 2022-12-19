@@ -25,9 +25,11 @@ import javax.servlet.ServletException;
 			String name = req.getParameter("name");
 			String email = req.getParameter("email");
 			double sal=0 ;
+			int id =0;
 			
 			try{
 				sal =Double.parseDouble(req.getParameter("sal"));
+				id =Integer.parseInt(req.getParameter("id"));
 				
 				
 			}catch( Exception e){
@@ -36,6 +38,7 @@ import javax.servlet.ServletException;
 			
 			Student stud =new Student();
 			
+			stud.setId(id);
 			stud.setName(name);
 			stud.setSal(sal);
 			stud.setEmail(email);
@@ -46,33 +49,25 @@ import javax.servlet.ServletException;
 				String url ="jdbc:mysql://localhost:3306/servlet";
 				Connection con = DriverManager.getConnection(url,"root","root");
 				
-				String insert="insert into employee  (name,sal,email) values(?,?,?)";
+				String insert="insert into employee  (id,name,sal,email) values(?,?,?,?)";
 				
 				PreparedStatement pstmt =  con.prepareStatement(insert);
+				pstmt.setInt(1, stud.id);
+				pstmt.setString(2, stud.name);
+				pstmt.setDouble(3, stud.sal);
+				pstmt.setString(4, stud.email);
 				
-				pstmt.setString(1, stud.name);
-				pstmt.setDouble(2, stud.sal);
-				pstmt.setString(3, stud.email);
 				
 				pstmt.execute();
 				
-				RequestDispatcher rd = req.getRequestDispatcher("display.jsp");
-				rd.forward(req, resp);
+				RequestDispatcher rd = req.getRequestDispatcher("insert.jsp");
+				rd.include(req, resp);
 				
 			} catch (ClassNotFoundException | SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			
-			
-			StudentDao studDao =  new StudentDao();
-
-			// database connection of insert
-			int ret =1;//= studDao.insertStudent(stud);
-			if(ret >0){
-				System.out.println("submitted data...");
-			}
-
-		}
+					}
 
 	}
