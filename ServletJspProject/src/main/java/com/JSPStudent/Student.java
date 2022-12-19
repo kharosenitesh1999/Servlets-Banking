@@ -5,7 +5,7 @@ public class Student {
 	int id;
 	
 	String name ;
-	long tel ;
+	double sal ;
 	String email;
 	
 	public Student(){}
@@ -20,11 +20,11 @@ public class Student {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public long getTel() {
-		return tel;
+	public double getSal() {
+		return sal;
 	}
-	public void setTel(long tel) {
-		this.tel = tel;
+	public void setSal(double sal) {
+		this.sal = sal;
 	}
 	public String getEmail() {
 		return email;

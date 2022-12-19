@@ -26,13 +26,13 @@ public class JSPStudentDao extends Connect{
 		
 		connection  = Connect.getConnection("servlet", "root","root" );
 		
-		String insert = "insert into details (name,tel,email) "
-				+ "values(?,?,?)";
+		String insert = "insert into employee (id ,name,sal,email) "
+				+ "values(?,?,?,?)";
 		 pstmt = connection.prepareStatement(insert);
-		 
-		 pstmt.setString(1,stud.name);
-		 pstmt.setLong(2,stud.tel);
-		 pstmt.setString(3,stud.email);
+		 pstmt.setInt(1,stud.id);
+		 pstmt.setString(2,stud.name);
+		 pstmt.setLong(3,stud.tel);
+		 pstmt.setString(4,stud.email);
 		 
 		 int ret =  pstmt.executeUpdate();
 		 

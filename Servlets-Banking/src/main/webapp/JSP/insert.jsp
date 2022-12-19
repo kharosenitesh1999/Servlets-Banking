@@ -31,7 +31,7 @@ background-color:gray;
 input{
 border-width:5px;
 border-radius: 25px;
-height: 35px;
+height: 30px;
 width: 300px;
 padding-left:100px;
 font-size: 20px;
@@ -90,14 +90,15 @@ color:red;
 
 
 
+
 <div align=center>
 
 <form action="insert"  method="post">
 <div class='parent' >
 <h1 align="center">Wel-Come</h1>
-
+<input type='tel'  maxlenght='5' placeholder="Enter  Id" name='id' required><br><br>
 <input type='text' placeholder="Enter  the Name" name='name' required><br><br>
-<input type='tel' placeholder="Enter the  Mobile" name='tel' required><br><br>
+<input type='tel' placeholder="Enter the  salary" name='sal' required><br><br>
 <input type='email' placeholder="Enter the email" name='email' required><br><br>
 <button class="btn4"  type="submit">Submit</button><br><br>
 </div>

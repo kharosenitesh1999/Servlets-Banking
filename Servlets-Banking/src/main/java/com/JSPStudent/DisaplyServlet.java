@@ -6,6 +6,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,7 +23,7 @@ public class DisaplyServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		
+		ArrayList al  = new ArrayList<>();
 		
 
 			try{
@@ -50,7 +52,15 @@ public class DisaplyServlet extends HttpServlet {
 			System.out.println(e);
 			
 		}
-		
+		try {
+			while(rs.next())
+			{
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		HttpSession hs = req.getSession();
 		hs.setAttribute("rs", rs);
 		
