@@ -152,7 +152,7 @@ color:red;
 </div>
 </form>
 
-<form action="fetchdetails" method="post">
+<form action="fetchdata" method="post">
 <div class='id'>
 <input  class='id' type='number' name ='id' placeholder="Enter the ID" required >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
 <input  class='btn1' type='submit' value=' Submit' ></div>
@@ -160,26 +160,27 @@ color:red;
 <p><span>*Please Enter Valid ID  </span></p>
 
 </form>
-<form action="update" method="post">
+<form action="" method="post">
 <h1>Details</h1>
 <div class=c1>
 
 <%!	String name="Name";
 double sal=0.00;
 String email ="Email";
-boolean flag=false;
+
 %>
 <% ResultSet rs = (ResultSet) session.getAttribute("details");
 		rs.next();
 		String name=rs.getString("name");
 		double sal = rs.getDouble("sal");
-		String email = rs.getString("email");%>
-   <!-- 
-	 -->
+		String email = rs.getString("email");
+%>
+
 <lable>Name:</lable> &nbsp&nbsp<input class=id value="<%= name %>"><br><br>
 <lable>Salary:</lable>&nbsp&nbsp <input class=id value="<%=sal %>"><br><br>
 <lable>Email:</lable> &nbsp&nbsp<input class=id value="<%=email %>"><br><br>
- <input  class='btn2' type='submit' value=' Submit' ></div>
+ <input  class='btn2' type='submit' value=' Submit' >
+</div>
 </div>
 </form>
 

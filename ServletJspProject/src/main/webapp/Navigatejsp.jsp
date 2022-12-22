@@ -8,9 +8,11 @@
 </head>
 <body align='center'>
 
-<form   action='update' method='post'>
+<form   action='nav' method='post'>
 
 <input height=10px type='submit' value='Click Here' >
+
 </form>
+
 </body>
 </html>

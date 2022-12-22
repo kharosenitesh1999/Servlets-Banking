@@ -28,25 +28,38 @@
 			String name = req.getParameter("name");
 			double sal = Double.parseDouble(req.getParameter("sal"));
 			String email = req.getParameter("email");
-			
+			PreparedStatement pstmt =null;
 			try {
 				Class.forName("com.mysql.cj.jdbc.Driver");
 				String url ="jdbc:mysql://localhost:3306/servlet";
+				
 				Connection con = DriverManager.getConnection(url,"root","root");
 				Statement st = con.createStatement();
-				PreparedStatement pstmt = con.prepareStatement("update  emplyee SET name=? ,sal=? ,email=? where id=?");
+				
+				 pstmt = con.prepareStatement("update  emplyee SET name=? ,sal=? ,email=? where id=?");
+				
 				pstmt.setString(1, name);
 				pstmt.setDouble(2,sal );
 				pstmt.setString(3, email);
 				pstmt.setInt(4, id);
-				ResultSet details =  pstmt.executeQuery();
+				int details =  pstmt.executeUpdate();
 				
-				RequestDispatcher rd = req.getRequestDispatcher("update.html");
-				rd.forward(req, resp);
 				
+				
+					RequestDispatcher rd = req.getRequestDispatcher("update.jsp");
+					rd.forward(req, resp);
+					
+				 
 			} catch (ClassNotFoundException | SQLException e) {
 				
 				e.printStackTrace();
+			} finally{
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 			
 		}

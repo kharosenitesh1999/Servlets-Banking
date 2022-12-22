@@ -51,6 +51,7 @@ font-size: 20px;
 font-family:cursive;
 color:white;
 }
+
 button.head{
 
 border-width:5px;
@@ -90,8 +91,9 @@ color:red;
 <button formaction="insert.jsp" class="head" >Insert</button>&nbsp&nbsp&nbsp&nbsp
 <button formaction="update.html" class="head" >Update</button>&nbsp&nbsp&nbsp&nbsp
 <button formaction="delete.html" class="head" >Delete</button>&nbsp&nbsp&nbsp&nbsp
-<button formaction="display.html" class="head" >Display</button>&nbsp&nbsp&nbsp&nbsp
+<button formaction="nav" class="head" >Display</button>&nbsp&nbsp&nbsp&nbsp
 </div>
+
 </form>
 
 

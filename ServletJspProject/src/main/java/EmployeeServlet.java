@@ -14,20 +14,23 @@ import javax.servlet.http.HttpSession;
 
 import java.sql.Statement;
 
-@WebServlet("/emp")
+@WebServlet("/nav")
 public class EmployeeServlet  extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		try {
+			
 			Class.forName("com.mysql.cj.jdbc.Driver");
+			
 			String url ="jdbc:mysql://localhost:3306/servlet";
+			
 			Connection con = DriverManager.getConnection(url,"root","root");
 			Statement st = con.createStatement();
 			
 			ResultSet rs =  st.executeQuery("Select *from employee");
 			
-			HttpSession hs  =  req.getSession();
+			HttpSession hs  =req.getSession();
 			hs.setAttribute("rs", rs);
 			
 			RequestDispatcher rd = req.getRequestDispatcher("display.jsp");

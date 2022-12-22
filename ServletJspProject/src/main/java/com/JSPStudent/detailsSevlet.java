@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/fetchdetails")
+@WebServlet("/fetchdata")
 public class detailsSevlet  extends HttpServlet{
 
 	@Override
@@ -24,28 +24,26 @@ public class detailsSevlet  extends HttpServlet{
 		
 		int id = Integer.parseInt(req.getParameter("id"));
 		try {
+			
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			String url ="jdbc:mysql://localhost:3306/servlet";
+			String url = "jdbc:mysql://localhost:3306/servlet";
 			Connection con = DriverManager.getConnection(url,"root","root");
 			Statement st = con.createStatement();
-			PreparedStatement pstmt = con.prepareStatement("Select *from employee where id=?");
-			pstmt.setInt(1, id);
-			ResultSet details =  pstmt.executeQuery();
-//			details.next();
-//			if(details!=null) {
-				//System.out.println(details.getString("name"));
+			PreparedStatement pstmt = con.prepareStatement("Select *from employee  where id =?");
+			            pstmt.setInt(1, id); 
+			ResultSet details =  pstmt.executeQuery();	
 				HttpSession hs  =  req.getSession();
+				
 				hs.setAttribute("details", details);
-				hs.setAttribute("id", id);
-			
+				
+				    hs.setAttribute("id", id);
+				
+			// data sending for display on jsp 
+				
 			RequestDispatcher rd = req.getRequestDispatcher("update.jsp");
-			rd.forward(req, resp);
-//			}else {
-//				RequestDispatcher rd = req.getRequestDispatcher("update.html");
-//				rd.forward(req, resp);
-//			}
+			rd.forward(req,resp);
 			
-		} catch (ClassNotFoundException | SQLException e) {
+		}catch(ClassNotFoundException | SQLException e) {
 			
 			e.printStackTrace();
 		}
