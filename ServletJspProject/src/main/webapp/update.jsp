@@ -169,7 +169,7 @@ double sal=0.00;
 String email ="Email";
 
 %>
-<% ResultSet rs = (ResultSet) session.getAttribute("details");
+<% ResultSet rs = (ResultSet) session.getAttribute("rs");
 		rs.next();
 		String name=rs.getString("name");
 		double sal = rs.getDouble("sal");
