@@ -15,7 +15,7 @@ import javax.servlet.ServletException;
 	import javax.servlet.http.HttpServletRequest;
 	import javax.servlet.http.HttpServletResponse;
 	import javax.servlet.http.HttpSession;
-	@WebServlet("/inserts")
+	@WebServlet("/insert")
 	public class InsertServlet extends HttpServlet {
 		
 		@Override
@@ -29,16 +29,14 @@ import javax.servlet.ServletException;
 			
 			try{
 				sal =Double.parseDouble(req.getParameter("sal"));
-				id =Integer.parseInt(req.getParameter("id"));
-				
-				
+								
 			}catch( Exception e){
 				System.out.println(e);
 			}
 			
 			Student stud =new Student();
 			
-			stud.setId(id);
+			
 			stud.setName(name);
 			stud.setSal(sal);
 			stud.setEmail(email);
@@ -49,13 +47,13 @@ import javax.servlet.ServletException;
 				String url ="jdbc:mysql://localhost:3306/servlet";
 				Connection con = DriverManager.getConnection(url,"root","root");
 				
-				String insert="insert into employee  (id,name,sal,email) values(?,?,?,?)";
+				String insert="insert into employee  (name,sal,email) values(?,?,?)";
 				
 				PreparedStatement pstmt =  con.prepareStatement(insert);
-				pstmt.setInt(1, stud.id);
-				pstmt.setString(2, stud.name);
-				pstmt.setDouble(3, stud.sal);
-				pstmt.setString(4, stud.email);
+				//pstmt.setInt(1, stud.id);
+				pstmt.setString(1, stud.name);
+				pstmt.setDouble(2, stud.sal);
+				pstmt.setString(3, stud.email);
 				
 				
 				pstmt.execute();

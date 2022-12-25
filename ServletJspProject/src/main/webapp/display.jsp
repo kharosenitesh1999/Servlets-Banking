@@ -4,9 +4,41 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Display data</title>
+<style>
+
+input{
+
+border-width:5px;
+border-radius: 25px;
+height: 45px;
+width: 250px;
+padding-left:0px;
+background-color: rgb(220,0,0);
+margin:25px 40px 10px 55px;
+font-size: 20px;
+font-family:cursive;
+color:white;
+cursor: pointer;
+}
+</style>
 </head>
 <body align ="center">
+
+<header>
+
+<form action="insert.jsp">
+<input type="submit" onclick="click()" Value=" Go to Home Page" >
+
+<script>
+function click(){
+
+alert ( "Welcome User" );
+
+}
+</script>
+</form>
+</header>
 <h1 align="center">Display</h1>
 
 <form    >
@@ -18,11 +50,13 @@
 <th>Tel</th>
 <th>Email</th>
 
-<%while(rs.next()){ %>
+<%while(rs.next()){  
+
+%>
 <tr>
 <td><%= rs.getInt("id") %></td>
 <td><%= rs.getString("name")%></td>
-<td><%= rs.getDouble("sal")%></td>
+<td><%= rs.getLong("sal")%></td>
 <td><%= rs.getString("email")%></td>
 </tr>
 <% } %>
@@ -30,12 +64,6 @@
 </table>
 
 </form>
+
 </body>
 </html>
-
-<!-- 
-use   servlet;
-create table employee(id int not null, name varchar(150) ,sal  double, email varchar(100), primary key(id));
-desc servlet.employee;
-select *from servlet.employee;
-insert into employee( id,name ,sal,email) values(4,'dada' , 1231.0 ,'data@gmail.com'); -->

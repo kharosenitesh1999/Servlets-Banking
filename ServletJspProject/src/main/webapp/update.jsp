@@ -144,22 +144,26 @@ color:red;
 
 
 <form   method="post">
+
 <div class=head>
 <button formaction="insert.jsp" class="head" >Insert</button>&nbsp&nbsp&nbsp&nbsp
 <button formaction="update.html" class="head" >Update</button>&nbsp&nbsp&nbsp&nbsp
 <button formaction="delete.html" class="head" >Delete</button>&nbsp&nbsp&nbsp&nbsp
-<button formaction="emp" class="head" >Display</button>&nbsp&nbsp&nbsp&nbsp
+<button formaction="nav" class="head" >Display</button>&nbsp&nbsp&nbsp&nbsp
 </div>
+
 </form>
 
 <form action="fetchdata" method="post">
+
 <div class='id'>
 <input  class='id' type='number' name ='id' placeholder="Enter the ID" required >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
-<input  class='btn1' type='submit' value=' Submit' ></div>
+<input  class='btn1' type='submit' value=' Submit' >
+</div>
 
 <p><span>*Please Enter Valid ID  </span></p>
-
 </form>
+
 <form action="" method="post">
 <h1>Details</h1>
 <div class=c1>
@@ -169,19 +173,21 @@ double sal=0.00;
 String email ="Email";
 
 %>
-<% ResultSet rs = (ResultSet) session.getAttribute("rs");
+ 
+<%  ResultSet rs = (ResultSet)session.getAttribute("rs"); 
 		rs.next();
+		int id =rs.getInt("id");
 		String name=rs.getString("name");
-		double sal = rs.getDouble("sal");
+		double sal = rs.getLong("sal");
 		String email = rs.getString("email");
+		
 %>
 
+<form >
 <lable>Name:</lable> &nbsp&nbsp<input class=id value="<%= name %>"><br><br>
 <lable>Salary:</lable>&nbsp&nbsp <input class=id value="<%=sal %>"><br><br>
 <lable>Email:</lable> &nbsp&nbsp<input class=id value="<%=email %>"><br><br>
  <input  class='btn2' type='submit' value=' Submit' >
-</div>
-</div>
 </form>
 
 </body>

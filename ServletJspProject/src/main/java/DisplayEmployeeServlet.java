@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 import java.sql.Statement;
 
 @WebServlet("/nav")
-public class EmployeeServlet  extends HttpServlet{
+public class DisplayEmployeeServlet  extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		

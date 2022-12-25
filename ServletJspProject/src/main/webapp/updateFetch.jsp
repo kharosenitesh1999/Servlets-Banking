@@ -1,4 +1,6 @@
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ page import="java.sql.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,6 +19,7 @@ div.head{
 height: 100px;
 border: solid;
 border-width: 5px;
+margin-top: 50px;
 margin-bottom: 25px;
 border-radius: 50px;
 border-color: menu;
@@ -128,6 +131,7 @@ margin-left:10px;
 lable{
 font-size: 25px;
 font-weight: bold;
+margin-bottom: 25px;
 
 }
 </style>
@@ -135,13 +139,14 @@ font-weight: bold;
 <body align=center >
 
 
-<form   method='post'>
 
-<div class=head>
+<form  method='post' >
+
+<div class=head  >
 <button formaction="insert.jsp" class="head" >Insert</button>&nbsp&nbsp&nbsp&nbsp
 <button formaction="update.html" class="head" >Update</button>&nbsp&nbsp&nbsp&nbsp
 <button formaction="delete.html" class="head" >Delete</button>&nbsp&nbsp&nbsp&nbsp
-<button formaction="nav" class="head" >Display</button>&nbsp&nbsp&nbsp&nbsp
+<button formaction="nav" class="head"  method='post'>Display</button>&nbsp&nbsp&nbsp&nbsp
 </div>
 
 </form>
@@ -153,16 +158,34 @@ font-weight: bold;
 <input  class='btn1' type='submit' value=' Submit' >
 
 </div>
-
 </form>
+
+
+
+
+<%  ResultSet rs = (ResultSet)session.getAttribute("rs"); %>
+
+<%! int id ;
+	String name ;
+	long sal ;
+	String email;
+	%>
+
+<%while(rs.next()){
+	id =rs.getInt("id");
+	name =rs.getString("name");
+	sal =rs.getLong("sal");
+	email =rs.getString("email"); 
+	}
+	%>
 
 <form action="update" method="post">
 <h1>Details</h1>
 <div class=c1>
 
-<lable>Name:</lable> &nbsp&nbsp<input class=id value="Name"><br><br>
-<lable>Salary:</lable>&nbsp&nbsp <input class=id value="Salary"><br><br>
-<lable>Email:</lable> &nbsp&nbsp<input class=id value="Email"><br><br>
+<lable>Name:</lable> &nbsp&nbsp<input class=id name='name' value="<%=name %>"><br><br>
+<lable>Salary:</lable>&nbsp&nbsp <input class=id name='sal' value="<%= sal%>"><br><br>
+<lable>Email:</lable> &nbsp&nbsp<input class=id name='email' value="<%=email %>"><br><br>
 <input  class='btn2' type='submit' value=' Submit' >
 </div>
 </form>

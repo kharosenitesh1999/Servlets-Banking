@@ -1,4 +1,6 @@
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ page import="java.sql.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -134,10 +136,11 @@ font-weight: bold;
 </head>
 <body align=center >
 
+<form>
 
-<form   method='post'>
+<form   >
 
-<div class=head>
+<div class=head  method='post'>
 <button formaction="insert.jsp" class="head" >Insert</button>&nbsp&nbsp&nbsp&nbsp
 <button formaction="update.html" class="head" >Update</button>&nbsp&nbsp&nbsp&nbsp
 <button formaction="delete.html" class="head" >Delete</button>&nbsp&nbsp&nbsp&nbsp
@@ -146,23 +149,41 @@ font-weight: bold;
 
 </form>
 
-<form action="fetchdata" method="post">
+<form action="Dfetchdata" method="post">
 <div class='id'>
 
 <input  class='id' type='number' name ='id' placeholder="Enter the ID" required >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
 <input  class='btn1' type='submit' value=' Submit' >
 
 </div>
-
 </form>
 
-<form action="update" method="post">
-<h1>Details</h1>
+
+
+
+<%  ResultSet rs = (ResultSet)session.getAttribute("rs"); %>
+
+<%! int id ;
+	String name ;
+	long sal ;
+	String email;
+	%>
+
+<%while(rs.next()){
+	id =rs.getInt("id");
+	name =rs.getString("name");
+	sal =rs.getLong("sal");
+	email =rs.getString("email"); 
+	}
+	%>
+
+<form action="delete" method="post">
+<h1>Delete Details</h1>
 <div class=c1>
 
-<lable>Name:</lable> &nbsp&nbsp<input class=id value="Name"><br><br>
-<lable>Salary:</lable>&nbsp&nbsp <input class=id value="Salary"><br><br>
-<lable>Email:</lable> &nbsp&nbsp<input class=id value="Email"><br><br>
+<lable>Name:</lable> &nbsp&nbsp<input class=id name='name' value="<%=name %>"><br><br>
+<lable>Salary:</lable>&nbsp&nbsp <input class=id name='sal' value="<%= sal%>"><br><br>
+<lable>Email:</lable> &nbsp&nbsp<input class=id name='email' value="<%=email %>"><br><br>
 <input  class='btn2' type='submit' value=' Submit' >
 </div>
 </form>

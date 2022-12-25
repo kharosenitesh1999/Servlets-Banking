@@ -24,11 +24,26 @@
 			
 			
 			HttpSession hs = req.getSession();
-			int id = (Integer)hs.getAttribute("id");
-			String name = req.getParameter("name");
-			double sal = Double.parseDouble(req.getParameter("sal"));
+			int id = (Integer)hs.getAttribute("fid");
+			String  name = req.getParameter("name");
+			 Double sal;
+			//int id = Integer.parseInt(req.getParameter("id"));
+			try {
+
+				sal =Double.parseDouble(req.getParameter("sal"));
+				
+			}catch(NullPointerException e) {
+				sal=0.0;
+			}
 			String email = req.getParameter("email");
 			PreparedStatement pstmt =null;
+			
+			
+			System.out.println("*1:");				
+System.out.println(id);
+System.out.println(name);
+System.out.println(sal);
+System.out.println(email);
 			try {
 				Class.forName("com.mysql.cj.jdbc.Driver");
 				String url ="jdbc:mysql://localhost:3306/servlet";
@@ -36,17 +51,20 @@
 				Connection con = DriverManager.getConnection(url,"root","root");
 				Statement st = con.createStatement();
 				
-				 pstmt = con.prepareStatement("update  emplyee SET name=? ,sal=? ,email=? where id=?");
+				 pstmt = con.prepareStatement("update  employee SET name=? ,sal=? ,email=? where id=?");
 				
 				pstmt.setString(1, name);
 				pstmt.setDouble(2,sal );
 				pstmt.setString(3, email);
 				pstmt.setInt(4, id);
 				int details =  pstmt.executeUpdate();
-				
-				
-				
-					RequestDispatcher rd = req.getRequestDispatcher("update.jsp");
+
+			System.out.println("*2:");	
+System.out.println(id);
+System.out.println(name);
+System.out.println(sal);
+System.out.println(email);
+					RequestDispatcher rd = req.getRequestDispatcher("insert.jsp");
 					rd.forward(req, resp);
 					
 				 

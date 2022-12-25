@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Insert </title>
 
 <style >
 body{
@@ -80,6 +80,10 @@ font-family: cursive;
 font-size: 10mm;
 color:red; 
 }
+.demo{
+color:'red';
+font-size-adjust: 200px;
+}
 </style>
 </head>
 <body>
@@ -93,37 +97,29 @@ color:red;
 <button formaction="delete.html" class="head" >Delete</button>&nbsp&nbsp&nbsp&nbsp
 <button formaction="nav" class="head" >Display</button>&nbsp&nbsp&nbsp&nbsp
 </div>
-
 </form>
-
-
-
-
 
 <div align=center>
 
-<form action="inserts"  method="post">
+<form action="insert"  method="post">
 <div class='parent' >
 <h1 align="center">Wel-Come</h1>
-<input type='tel' maxlength=5 placeholder="Enter  ID" name='id' required><br><br>
 <input type='text' placeholder="Enter  the Name" name='name' required><br><br>
 <input type='tel' placeholder="Enter the  salary" name='sal' required><br><br>
 <input type='email' placeholder="Enter the email" name='email' required><br><br>
-<button class="btn4"  type="submit">Submit</button><br><br>
+<button class="btn4"  type="submit" onclick="click()" >Submit</button><br><br>
 </div>
 </form>
 
 </div>
 
+<script>
+function click(){
+
+alert ( "Welcome User" );
+
+}
+</script>
+
 </body>
 </html>
-
-<!-- 
-<form>
-
- <div class=head>
-
-<button class="head" formaction="insert.jsp">Insert</button>&nbsp&nbsp&nbsp&nbsp
-<button class="head" formaction="update.jsp">Update</button>&nbsp&nbsp&nbsp&nbsp
-<button class="head" formaction="delete.jsp">Delete</button>&nbsp&nbsp&nbsp&nbsp
-</form> -->
